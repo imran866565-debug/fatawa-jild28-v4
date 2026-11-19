@@ -1,0 +1,94 @@
+name: Merge Jild 28 tashreeh v4
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  merge:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Merge chunks
+        run: python3 merge_jild28_v4.py
+      - name: Verify merged file
+        run: |
+          python3 - <<'EOF'
+          import json, re
+          import merge_jild28_v4 as m
+          d = json.load(open('jild-28.json', encoding='utf-8'))
+          items = d['masail']
+          pages = set()
+          for it in items:
+              pages.update(it['pages'])
+          print('items:', len(items))
+          print('unique pages:', len(pages), 'min:', min(pages), 'max:', max(pages))
+          print('ids unique:', len(set(it['id'] for it in items)) == len(items))
+          print('empty jawab:', sum(1 for it in items if not it.get('tashreeh_jawab')))
+          print('volume_ids:', sorted(set(it.get('volume_id') for it in items)))
+          print('first id:', items[0]['id'])
+          print('last id:', items[-1]['id'])
+          exceptions = sorted(it['id'] for it in items if it.get('start_page') != min(it['pages']))
+          print('start_page exceptions:', exceptions)
+          raw = open('jild-28.json', encoding='utf-8').read()
+          SAFHA = "\u0635\u0641\u062d\u06c1"
+          LENT = "\u3010" + SAFHA
+          print('lenticular markers remaining:', raw.count(LENT))
+          print('short markers remaining:', len(re.findall(r"\[\u0635 \d+\]", raw)))
+          print('[safha N] markers total:', len(re.findall(r"\[" + SAFHA + r" \d+\]", raw)))
+          # Independent re-check of the exact v3 identity (lists embedded in merge script).
+          ids = [it['id'] for it in items]
+          assert ids == list(m.V3_IDS), 'ID sequence != v3'
+          for it in items:
+              assert it['pages'] == m.V3_PAGES[it['id']], f"{it['id']}: pages != v3"
+          assert len(items) == 89
+          assert len(pages) == 636
+          assert min(pages) == 5 and max(pages) == 686
+          assert len(set(it['id'] for it in items)) == len(items)
+          assert not any(not it.get('tashreeh_jawab') for it in items)
+          assert sorted(set(it.get('volume_id') for it in items)) == [32]
+          assert exceptions == []
+          assert items[0]['id'] == 'jild28-pesh-lafz'
+          assert items[-1]['id'] == 'jild28-zulal-latifa-baqillani'
+          assert LENT not in raw
+          assert not re.search(r"\[\u0635 \d+\]", raw)
+          # Combined items: exact pages + sawal/jawab lengths.
+          combined = {
+              'jild28-shamama-4-nufha-3': ([206, 207, 208, 209, 210, 211, 212, 213, 214, 215], 0, 9069),
+              'jild28-shamama-4-nufha-14': ([254, 255, 256, 257, 258, 259, 260, 261], 0, 10367),
+              'jild28-shamama-4-nufha-21': ([303, 304, 305, 306, 307, 308, 309, 310, 311, 312, 313, 314, 315, 316, 317, 318, 319, 320, 321, 322, 323, 324, 325, 326, 327, 328, 329, 330, 331, 332, 333, 334], 0, 36882),
+              'jild28-zulal-shubha-1-muqaddimat': ([531, 532, 533, 534, 535, 536, 537, 538, 539, 540, 541, 542, 543, 544, 545, 546, 547, 548, 549, 550], 0, 26633),
+              'jild28-zalal-nqi-radd-abu-ubayda': ([579, 580, 581, 582, 583, 584, 585, 586, 587, 588, 589, 590, 591, 592, 593, 595, 596, 597, 598, 599, 600, 601, 602, 603], 0, 28623),
+          }
+          for cid, (exp_pages, exp_sawal, exp_jawab) in combined.items():
+              hits = [it for it in items if it['id'] == cid]
+              assert len(hits) == 1, f'{cid}: expected exactly 1 item'
+              assert hits[0]['pages'] == exp_pages, f'{cid}: pages mismatch'
+              assert len(hits[0].get('tashreeh_sawal', '')) == exp_sawal, f'{cid}: sawal length mismatch'
+              assert len(hits[0].get('tashreeh_jawab', '')) == exp_jawab, f'{cid}: jawab length mismatch'
+              print(cid, 'pages', hits[0]['pages'][0], '-', hits[0]['pages'][-1], 'sawal', exp_sawal, 'jawab', exp_jawab)
+          # Absorbed ids must be gone (chunk 05's nafha-3 scoped by start_page).
+          for sid in ['jild28-nafha-14', 'jild28-nafha-21', 'jild28-risala-535', 'jild28-zalal-nqi-1', 'jild28-risala-77-shubha-1']:
+              assert not any(it['id'] == sid for it in items), f'absorbed id {sid} still present'
+          assert not any(it['id'] == 'jild28-nafha-3' and it.get('start_page') == 213 for it in items), "chunk-05 nafha-3 still present"
+          # The 16 rename-only targets must exist with v3 pages.
+          for rid in ['jild28-shamama-4-nufha-4', 'jild28-shamama-4-nufha-5', 'jild28-shamama-4-nufha-6', 'jild28-shamama-4-nufha-7', 'jild28-shamama-4-nufha-8', 'jild28-shamama-4-nufha-9', 'jild28-shamama-4-nufha-10', 'jild28-shamama-4-nufha-11', 'jild28-shamama-4-nufha-12', 'jild28-shamama-4-nufha-13', 'jild28-shamama-4-nufha-15', 'jild28-shamama-4-nufha-16', 'jild28-shamama-4-nufha-17', 'jild28-shamama-4-nufha-18', 'jild28-shamama-4-nufha-19', 'jild28-shamama-4-nufha-20']:
+              hits = [it for it in items if it['id'] == rid]
+              assert len(hits) == 1, f'{rid}: expected exactly 1 item'
+              assert hits[0]['pages'] == m.V3_PAGES[rid], f'{rid}: pages != v3'
+          # Chunk 03's plain nafha-1..10 (lesson 533) keep their ids.
+          for n in range(1, 11):
+              sid = f'jild28-nafha-{n}'
+              hits = [it for it in items if it['id'] == sid]
+              assert len(hits) == 1, f'{sid}: expected exactly 1 item'
+              assert hits[0]['pages'] == m.V3_PAGES[sid], f'{sid}: pages != v3'
+          print('combined items + renames verified')
+          print('VERIFICATION PASSED')
+          EOF
+      - name: Create release with merged file
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          ls -la jild-28.json
+          gh release create v1.0 jild-28.json --title "Jild 28 tashreeh v4 - merged" --notes "Merged easy-Urdu tashreeh v4 for Fatawa Razviya Jild 28: 89 items, 636 pages (volume_id 32). Generated by merge_jild28_v4.py from the 14 leaf chunk files in order 01, 02, 03, 04, 05, 06, 07, 08, 09, 10, 11, 12, 13, 14 (5 combines: shamama-4-nufha-3, shamama-4-nufha-14, shamama-4-nufha-21, zulal-shubha-1-muqaddimat, zalal-nqi-radd-abu-ubayda — all parts empty sawal, jawab space-joined; 16 rename-onlys: plain nafha-N ids of chunks 05/06 move to the shamama-4-nufha-N form, chunk 03 keeps plain nafha-1..10; stable sort by start_page); item order reproduces the v3 merged file exactly (first jild28-pesh-lafz, last jild28-zulal-latifa-baqillani). All 14 chunks carry start_page == min(pages) (0 derived). 0 empty jawab; 72 empty sawal (as v3). No page markers present in the chunks." || gh release upload v1.0 jild-28.json --clobber

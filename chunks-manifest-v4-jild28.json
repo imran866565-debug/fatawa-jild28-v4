@@ -1,0 +1,164 @@
+{
+ "chunks": [
+  {
+   "chunk": "01",
+   "description": "Jild 28, pp. 5-64",
+   "end_page": 64,
+   "file": "jild-28-chunk-01.json",
+   "items": 5,
+   "pages_present": 22,
+   "start_page": 5,
+   "status": "done",
+   "verified": "2026-11-19 — merge agent verified on disk: 5 items, pp.5-64, ids/pages == v3 chunk file, vol 32, 2 empty sawal, 0 empty jawab, notes 16 vs v3 16, glosses 108x 'کا مطلب' + 0x 'کہتے ہیں', 0 markers in sawal+jawab. Clean re-write. Holds pesh-lafz (sawal empty by design) and the shamaim-al-anbar intro. pp.5-64. SHA 5c97318d…."
+  },
+  {
+   "chunk": "02",
+   "description": "Jild 28, pp. 65-112",
+   "end_page": 112,
+   "file": "jild-28-chunk-02.json",
+   "items": 12,
+   "pages_present": 58,
+   "start_page": 65,
+   "status": "done",
+   "verified": "2026-11-19 — merge agent verified on disk: 12 items, pp.65-112, ids/pages == v3 chunk file, vol 32, 12 empty sawal, 0 empty jawab, notes 12 vs v3 12, glosses 126x 'کا مطلب' + 9x 'کہتے ہیں', 0 markers in sawal+jawab. Clean re-write. Holds nafhah-1..12 (spelling with 'h') — distinct ids, never normalised. pp.65-112. SHA 3a1fc1d4…."
+  },
+  {
+   "chunk": "03",
+   "description": "Jild 28, pp. 113-155",
+   "end_page": 155,
+   "file": "jild-28-chunk-03.json",
+   "items": 10,
+   "pages_present": 52,
+   "start_page": 113,
+   "status": "done",
+   "verified": "2026-11-19 — merge agent verified on disk: 10 items, pp.113-155, ids/pages == v3 chunk file, vol 32, 10 empty sawal, 0 empty jawab, notes 15 vs v3 15, glosses 199x 'کا مطلب' + 2x 'کہتے ہیں', 0 markers in sawal+jawab. Clean re-write. Holds plain nafha-1..10 (lesson 533) — these keep the plain ids; chunk 05/06's nafha ids move to the shamama-4-nufha-N form at merge. pp.113-155. SHA 54c0aa96…."
+  },
+  {
+   "chunk": "04",
+   "description": "Jild 28, pp. 156-212",
+   "end_page": 212,
+   "file": "jild-28-chunk-04.json",
+   "items": 7,
+   "pages_present": 62,
+   "start_page": 156,
+   "status": "done",
+   "verified": "2026-11-19 — merge agent verified on disk: 7 items, pp.156-212, ids/pages == v3 chunk file, vol 32, 7 empty sawal, 0 empty jawab, notes 5 vs v3 5, glosses 220x 'کا مطلب' + 5x 'کہتے ہیں', 0 markers in sawal+jawab. Clean re-write. Holds the shamama-4-nufha-3 head [206-212] (combine part 1 of 2). pp.156-212. SHA c355dd3d…."
+  },
+  {
+   "chunk": "05",
+   "description": "Jild 28, pp. 213-258",
+   "end_page": 258,
+   "file": "jild-28-chunk-05.json",
+   "items": 12,
+   "pages_present": 57,
+   "start_page": 213,
+   "status": "done",
+   "verified": "2026-11-19 — merge agent verified on disk: 12 items, pp.213-258, ids/pages == v3 chunk file, vol 32, 12 empty sawal, 0 empty jawab, notes 9 vs v3 9, glosses 328x 'کا مطلب' + 5x 'کہتے ہیں', 0 markers in sawal+jawab. Clean re-write. Holds nafha-3 [213-215] (combine tail), nafha-4..13 (rename-only targets) and nafha-14 head [254-258] (combine part 1 of 2). pp.213-258. SHA 46ff7299…."
+  },
+  {
+   "chunk": "06",
+   "description": "Jild 28, pp. 259-303",
+   "end_page": 303,
+   "file": "jild-28-chunk-06.json",
+   "items": 8,
+   "pages_present": 51,
+   "start_page": 259,
+   "status": "done",
+   "verified": "2026-11-19 — merge agent verified on disk: 8 items, pp.259-303, ids/pages == v3 chunk file, vol 32, 8 empty sawal, 0 empty jawab, notes 13 vs v3 13, glosses 196x 'کا مطلب' + 5x 'کہتے ہیں', 0 markers in sawal+jawab. Clean re-write. Holds nafha-14 tail [259-261], nafha-15..20 (rename-only targets) and nafha-21 head [303] (combine part 1 of 2). pp.259-303. SHA 04d451b7…."
+  },
+  {
+   "chunk": "07",
+   "description": "Jild 28, pp. 304-360",
+   "end_page": 360,
+   "file": "jild-28-chunk-07.json",
+   "items": 2,
+   "pages_present": 55,
+   "start_page": 304,
+   "status": "done",
+   "verified": "2026-11-19 — merge agent verified on disk: 2 items, pp.304-360, ids/pages == v3 chunk file, vol 32, 2 empty sawal, 0 empty jawab, notes 13 vs v3 13, glosses 376x 'کا مطلب' + 11x 'کہتے ہیں', 0 markers in sawal+jawab. Clean re-write. Holds risala-535 [304-334] (nafha-21 combine tail) and risala-535-tatimma [336-360], kept separate. pp.304-360. SHA bd8e1a47…."
+  },
+  {
+   "chunk": "08",
+   "description": "Jild 28, pp. 361-403",
+   "end_page": 403,
+   "file": "jild-28-chunk-08.json",
+   "items": 4,
+   "pages_present": 44,
+   "start_page": 361,
+   "status": "done",
+   "verified": "2026-11-19 — merge agent verified on disk: 4 items, pp.361-403, ids/pages == v3 chunk file, vol 32, 0 empty sawal, 0 empty jawab, notes 8 vs v3 8, glosses 165x 'کا مطلب' + 4x 'کہتے ہیں', 0 markers in sawal+jawab. Clean re-write. All 4 items carry sawal (masala-4, masala-5, masala-6-ta-10, masala-11). pp.361-403. SHA 8e1802bd…."
+  },
+  {
+   "chunk": "09",
+   "description": "Jild 28, pp. 404-433",
+   "end_page": 433,
+   "file": "jild-28-chunk-09.json",
+   "items": 4,
+   "pages_present": 32,
+   "start_page": 404,
+   "status": "done",
+   "verified": "2026-11-19 — merge agent verified on disk: 4 items, pp.404-433, ids/pages == v3 chunk file, vol 32, 1 empty sawal, 0 empty jawab, notes 22 vs v3 13, glosses 105x 'کا مطلب' + 5x 'کہتے ہیں', 0 markers in sawal+jawab. Notes 22 vs v3 13 (+9 restorations + glosses; substance verified preserved by the coordinator). Holds masala-8 [428-431] — plain id kept, no other masala-8 in the volume. pp.404-433. SHA 3f61e2b6…."
+  },
+  {
+   "chunk": "10",
+   "description": "Jild 28, pp. 434-489",
+   "end_page": 489,
+   "file": "jild-28-chunk-10.json",
+   "items": 5,
+   "pages_present": 59,
+   "start_page": 434,
+   "status": "done",
+   "verified": "2026-11-19 — merge agent verified on disk: 5 items, pp.434-489, ids/pages == v3 chunk file, vol 32, 0 empty sawal, 0 empty jawab, notes 13 vs v3 13, glosses 276x 'کا مطلب' + 4x 'کہتے ہیں', 0 markers in sawal+jawab. Clean re-write. All 5 items carry sawal (masala-19..22, masala-22-doom). pp.434-489. SHA cf7ef18b…."
+  },
+  {
+   "chunk": "11",
+   "description": "Jild 28, pp. 491-544",
+   "end_page": 544,
+   "file": "jild-28-chunk-11.json",
+   "items": 7,
+   "pages_present": 59,
+   "start_page": 491,
+   "status": "done",
+   "verified": "2026-11-19 — merge agent verified on disk: 7 items, pp.491-544, ids/pages == v3 chunk file, vol 32, 7 empty sawal, 0 empty jawab, notes 17 vs v3 16, glosses 295x 'کا مطلب' + 12x 'کہتے ہیں', 0 markers in sawal+jawab. Notes 17 vs v3 16 (+1). Holds the zulal-shubha-1-muqaddimat head [531-544] (combine part 1 of 2). PUA p.511 (ornament only, verse intact). pp.491-544. SHA ea902613…."
+  },
+  {
+   "chunk": "12",
+   "description": "Jild 28, pp. 545-593",
+   "end_page": 593,
+   "file": "jild-28-chunk-12.json",
+   "items": 6,
+   "pages_present": 53,
+   "start_page": 545,
+   "status": "done",
+   "verified": "2026-11-19 — merge agent verified on disk: 6 items, pp.545-593, ids/pages == v3 chunk file, vol 32, 6 empty sawal, 0 empty jawab, notes 19 vs v3 18, glosses 337x 'کا مطلب' + 4x 'کہتے ہیں', 0 markers in sawal+jawab. Notes 19 vs v3 18 (+1). Holds zalal-nqi-1 [545-550] (combine tail) and the zalal-nqi-radd-abu-ubayda head [579-593] (combine part 1 of 2). PUA pp.568, 574 (ornaments only, verses intact). pp.545-593. SHA c3909ebf…."
+  },
+  {
+   "chunk": "13",
+   "description": "Jild 28, pp. 595-640",
+   "end_page": 640,
+   "file": "jild-28-chunk-13.json",
+   "items": 3,
+   "pages_present": 48,
+   "start_page": 595,
+   "status": "done",
+   "verified": "2026-11-19 — merge agent verified on disk: 3 items, pp.595-640, ids/pages == v3 chunk file, vol 32, 1 empty sawal, 0 empty jawab, notes 8 vs v3 7, glosses 211x 'کا مطلب' + 7x 'کہتے ہیں', 0 markers in sawal+jawab. Notes 8 vs v3 7 (+1). Holds risala-77-shubha-1 [595-603] (radd combine tail). pp.595-640. SHA 99856716…."
+  },
+  {
+   "chunk": "14",
+   "description": "Jild 28, pp. 641-686",
+   "end_page": 686,
+   "file": "jild-28-chunk-14.json",
+   "items": 9,
+   "pages_present": 53,
+   "start_page": 641,
+   "status": "done",
+   "verified": "2026-11-19 — merge agent verified on disk: 9 items, pp.641-686, ids/pages == v3 chunk file, vol 32, 9 empty sawal, 0 empty jawab, notes 4 vs v3 4, glosses 655x 'کا مطلب' + 6x 'کہتے ہیں', 0 markers in sawal+jawab. Clean re-write. Holds zulal-tadhyeel [641-651], kept separate from shubha-3, and the last item zulal-latifa-baqillani [683-686]. pp.641-686. SHA 027127cc…."
+  }
+ ],
+ "total_pages_present": 705,
+ "total_unique_pages": 636,
+ "volume": "Jild 28",
+ "volume_ids": [
+  32
+ ]
+}
